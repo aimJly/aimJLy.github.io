@@ -1,1 +1,51 @@
-# aimJLy.github.io
+# HAB Classifier — Sentinel-2 Harmful Algal Bloom Severity Classification
+
+Classifies inland-water Harmful Algal Bloom (HAB) severity (`Low` / `Moderate` / `High`) from
+Sentinel-2 multispectral satellite imagery, using the
+[amfitrite-inland-waters-hab-sentinel2](https://huggingface.co/datasets/kostaspic/amfitrite-inland-waters-hab-sentinel2)
+dataset (4,698 tiles, 955 locations).
+
+**Start here:** [`reports/REPORT.md`](reports/REPORT.md) for the full write-up (metrics, findings,
+fairness analysis, deployment recommendation), or
+[`notebooks/model_evaluation.ipynb`](notebooks/model_evaluation.ipynb) for the same content with
+inline code and real run outputs.
+
+## Results at a glance
+
+Best model: **Random Forest** — macro F1 = 0.741, accuracy = 0.750 on a held-out set of 843 tiles
+from 191 locations never seen in training (vs. 0.192 macro F1 for a majority-class baseline).
+
+## Repo layout
+
+```
+src/extract_features.py   # reads raw GeoTIFF bands, water-masks with SCL, computes spectral
+                           # features per tile -> outputs/features.csv
+src/train_evaluate.py     # grouped train/test split, trains 4 classifiers, evaluates, saves
+                           # outputs/metrics.json + outputs/figures/*.png
+src/extra_plots.py        # a couple of summary charts built from metrics.json
+src/build_notebook.py     # packages the above into notebooks/model_evaluation.ipynb
+outputs/                  # features.csv, metrics.json, figures/
+notebooks/                # model_evaluation.ipynb
+reports/REPORT.md         # written report
+amfitrite-inland-waters-hab-sentinel2/   # the cloned dataset (git+lfs)
+```
+
+## Reproducing
+
+```bash
+pip install -r requirements.txt
+python src/extract_features.py --workers 8      # ~4 min on 8 cores; writes outputs/features.csv
+python src/train_evaluate.py                    # writes outputs/metrics.json + figures
+python src/extra_plots.py                       # a couple of extra summary charts
+python src/build_notebook.py                    # rebuilds notebooks/model_evaluation.ipynb
+```
+
+## Key design decisions
+
+- **No label leakage:** features are computed independently from raw pixel bands; none of the
+  dataset's CyFi-derived summary columns (which were used to build the label itself) are used as
+  inputs. See `reports/REPORT.md` §1.
+- **Grouped train/test split by location (`case`)**, not by row, since the same lake appears at
+  multiple dates and rows from one location are spatially correlated.
+- **Macro-F1** is the primary metric because severity classes are imbalanced and all three matter
+  for an early-warning use case.
