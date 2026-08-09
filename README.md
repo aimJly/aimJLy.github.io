@@ -1,3 +1,7 @@
+#Credits 
+Group Members: Dani Jiang, Abigail Huang, Kelly Garcia, Duy Nghiem, Raquel Quintanilla
+
+
 # HAB Classifier — Sentinel-2 Harmful Algal Bloom Severity Classification
 
 Classifies inland-water Harmful Algal Bloom (HAB) severity (`Low` / `Moderate` / `High`) from
