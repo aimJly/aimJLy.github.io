@@ -1,4 +1,4 @@
-#Credits 
+# Credits 
 Group Members: Dani Jiang, Abigail Huang, Kelly Garcia, Duy Nghiem, Raquel Quintanilla
 
 
