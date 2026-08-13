@@ -167,3 +167,11 @@ We stratified the Random Forest's held-out accuracy by factors that could plausi
 2. Investigate the `Moderate` class specifically: is confusion concentrated in tiles with mixed severity within the same lake (multiple CyFi grid points disagreeing), where the single tile-level label is inherently more ambiguous?
 3. Re-run the fairness stratification restricted only to `with_measurements` (true ground-truth) tiles to get an accuracy estimate less influenced by inherited CyFi label noise.
 
+**Citations** :
+
+Caballero, I., Fernández, R., Escalante, O.M. et al. New capabilities of Sentinel-2A/B satellites combined with in situ data for monitoring small harmful algal blooms in complex coastal waters. Sci Rep 10, 8743 (2020). https://doi.org/10.1038/s41598-020-65600-1   https://www.nature.com/articles/s41598-020-65600-1
+Rongjie Liu, Binge Cui, Wenwen Dong, Xi Fang, Yanfang Xiao, Xin Zhao, Tingwei Cui, Yi Ma, Quanbin Wang,A refined deep-learning-based algorithm for harmful-algal-bloom remote-sensing recognition using Noctiluca scintillans algal bloom as an example,Journal of Hazardous Materials,Volume 467,2024,133721,ISSN 0304-3894,
+Prainer, V.L. et al. (2016). "Review: Health impacts from cyanobacteria harmful algae blooms: Implications for the North American Great Lakes." Harmful Algae. https://doi.org/10.1016/j.hal.2016.02.002
+Shen, M. et al. (2024). "A refined deep-learning-based algorithm for harmful-algal-bloom remote-sensing recognition." Journal of Hazardous Materials. https://doi.org/10.1016/j.jhazmat.2024.133540
+Silberman, E. et al. (2025). "U-shaped deep learning networks for algal bloom detection using Sentinel-2 imagery." PubMed/NCBI. https://pubmed.ncbi.nlm.nih.gov/40179468/
+
