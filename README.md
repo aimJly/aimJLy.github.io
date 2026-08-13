@@ -1,5 +1,5 @@
 # Credits 
-Group Members: Dani Jiang, Abigail Huang, Kelly Garcia, Duy Nghiem, Raquel Quintanilla
+Group Members: Jaliyah Harrison, Dani Jiang, Abigail Huang, Kelly Garcia, Duy Nghiem, Raquel Quintanilla, Mia Ly, Jaliyah  
 
 # Repo Link
 https://github.com/aimJly/aimJLy.github.io/tree/main
