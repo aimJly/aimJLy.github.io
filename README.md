@@ -1,6 +1,10 @@
 # Credits 
 Group Members: Dani Jiang, Abigail Huang, Kelly Garcia, Duy Nghiem, Raquel Quintanilla
 
+# Repo Link
+https://github.com/aimJly/aimJLy.github.io/tree/main
+
+
 
 # HAB Classifier — Sentinel-2 Harmful Algal Bloom Severity Classification
 
